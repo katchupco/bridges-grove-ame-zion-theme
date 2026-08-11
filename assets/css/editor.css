@@ -1,0 +1,4 @@
+/* Editor styles (keeps Gutenberg content close to front-end) */
+.editor-styles-wrapper{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}

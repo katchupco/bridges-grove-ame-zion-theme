@@ -1,0 +1,17 @@
+/*
+Theme Name: Bridges Grove AME Zion
+Theme URI: https://example.com/
+Author: Katch-Up Media LLC
+Author URI: https://example.com/
+Description: Elevated, editable church theme with a polished landing page, responsive navigation, page templates, Gutenberg patterns, and a tree-lined footer designed for Bridges Grove AME Zion.
+Version: 2.8.11
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bridges-grove
+Tags: custom-logo, custom-menu, one-column, two-columns, editor-style, block-styles
+*/
+
+/* This file intentionally minimal; main styles are enqueued from assets/css/theme.css */
