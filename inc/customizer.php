@@ -212,6 +212,19 @@ add_action('customize_register', function ($wp_customize) {
         'type'        => 'checkbox',
     ));
 
+    $wp_customize->add_setting('bg_github_auto_updates_enabled', array(
+        'default'           => false,
+        'sanitize_callback' => function ($value) {
+            return (bool) $value;
+        },
+    ));
+    $wp_customize->add_control('bg_github_auto_updates_enabled', array(
+        'label'       => __('Install GitHub theme updates automatically', 'bridges-grove'),
+        'description' => __('When checked, WordPress can install newer GitHub release versions automatically during its normal update cycle.', 'bridges-grove'),
+        'section'     => 'bg_github_updates',
+        'type'        => 'checkbox',
+    ));
+
     $wp_customize->add_setting('bg_github_repo_url', array(
         'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',

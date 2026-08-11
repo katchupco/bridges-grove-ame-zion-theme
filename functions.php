@@ -4,7 +4,7 @@
  */
 if (!defined('ABSPATH')) { exit; }
 
-define('BG_THEME_VERSION', '2.8.11');
+define('BG_THEME_VERSION', '2.8.12');
 define('BG_THEME_DIR', get_template_directory());
 define('BG_THEME_URI', get_template_directory_uri());
 

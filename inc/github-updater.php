@@ -8,14 +8,16 @@ function bg_github_updater_config(): array {
     $repo_url = trim((string) get_theme_mod('bg_github_repo_url', ''));
     $asset_name = trim((string) get_theme_mod('bg_github_asset_name', ''));
     $enabled = (bool) get_theme_mod('bg_github_updates_enabled', false);
+    $auto_updates = (bool) get_theme_mod('bg_github_auto_updates_enabled', false);
     $repo = bg_github_updater_parse_repo($repo_url);
 
     return array(
-        'enabled'    => $enabled,
-        'repo_url'   => $repo_url,
-        'asset_name' => $asset_name,
-        'owner'      => $repo['owner'] ?? '',
-        'repo'       => $repo['repo'] ?? '',
+        'enabled'      => $enabled,
+        'auto_updates' => $auto_updates,
+        'repo_url'     => $repo_url,
+        'asset_name'   => $asset_name,
+        'owner'        => $repo['owner'] ?? '',
+        'repo'         => $repo['repo'] ?? '',
     );
 }
 
@@ -39,6 +41,11 @@ function bg_github_updater_parse_repo(string $value): array {
 function bg_github_updater_enabled(): bool {
     $config = bg_github_updater_config();
     return !empty($config['enabled']) && !empty($config['owner']) && !empty($config['repo']);
+}
+
+function bg_github_updater_auto_updates_enabled(): bool {
+    $config = bg_github_updater_config();
+    return bg_github_updater_enabled() && !empty($config['auto_updates']);
 }
 
 function bg_github_updater_cache_key(): string {
@@ -98,6 +105,7 @@ function bg_github_updater_release_package(array $release): string {
     $config = bg_github_updater_config();
     $assets = $release['assets'] ?? array();
     $asset_name = $config['asset_name'];
+    $first_zip = '';
 
     if (is_array($assets)) {
         foreach ($assets as $asset) {
@@ -106,19 +114,17 @@ function bg_github_updater_release_package(array $release): string {
             if (!$name || !$download || strtolower(pathinfo($name, PATHINFO_EXTENSION)) !== 'zip') {
                 continue;
             }
+            if ($first_zip === '') {
+                $first_zip = esc_url_raw($download);
+            }
             if ($asset_name === '' || strcasecmp($asset_name, $name) === 0) {
                 return esc_url_raw($download);
             }
         }
-    }
 
-    if (!empty($release['tag_name']) && !empty($config['owner']) && !empty($config['repo'])) {
-        return sprintf(
-            'https://github.com/%s/%s/archive/refs/tags/%s.zip',
-            rawurlencode($config['owner']),
-            rawurlencode($config['repo']),
-            rawurlencode($release['tag_name'])
-        );
+        if ($first_zip !== '') {
+            return $first_zip;
+        }
     }
 
     return '';
@@ -199,6 +205,21 @@ add_filter('themes_api', function ($result, $action, $args) {
         ),
     );
 }, 10, 3);
+
+add_filter('auto_update_theme', function ($update, $item) {
+    if (!bg_github_updater_auto_updates_enabled()) {
+        return $update;
+    }
+
+    $theme_slug = '';
+    if (is_object($item) && isset($item->theme)) {
+        $theme_slug = (string) $item->theme;
+    } elseif (is_array($item) && isset($item['theme'])) {
+        $theme_slug = (string) $item['theme'];
+    }
+
+    return $theme_slug === get_stylesheet() ? true : $update;
+}, 10, 2);
 
 add_action('upgrader_process_complete', function () {
     if (bg_github_updater_enabled()) {

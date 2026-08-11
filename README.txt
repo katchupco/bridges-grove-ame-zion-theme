@@ -1,4 +1,4 @@
-Bridges Grove AME Zion — WordPress Theme (2.8.11)
+Bridges Grove AME Zion — WordPress Theme (2.8.12)
 
 This package includes a complete professional redesign:
 - Clean transparent 2026-style header with adaptive nav colors, logo swapping, and mobile menu
@@ -16,6 +16,7 @@ This package includes a complete professional redesign:
 - The Events Calendar hero vertical rhythm is tuned to match the other inner-page headers
 - The Events Calendar hero now renders from the theme layout instead of inside the plugin wrapper
 - Optional GitHub release updater so WordPress can detect and install future theme ZIP updates from GitHub
+- Optional automatic GitHub theme updates through WordPress's normal update cycle
 - History page timeline populated with Bridges Grove milestones and animated reveal effects
 - First Family photo option in Appearance > Customize > Bridges Grove Theme Options > Page Photos
 - Traditional Contact page form with name, email, optional phone, and message fields
@@ -53,9 +54,11 @@ Header buttons:
 GitHub updates:
 - Appearance → Customize → Bridges Grove Theme Options → GitHub Updates
 - Enable GitHub theme updates.
+- Optional: enable automatic GitHub theme updates.
 - Enter the public GitHub repository URL, such as https://github.com/yourname/bridges-grove-ame-zion
-- Optional but recommended: enter the exact release ZIP asset name.
+- Optional: enter the exact release ZIP asset name. If the exact file is not found, the updater uses the first ZIP attached to the latest release.
 - For future updates, publish a GitHub release with a newer tag such as v2.8.12, then attach the WordPress-ready theme ZIP to that release. WordPress will show the update in Dashboard → Updates after its next update check.
+- To test updates: install an older ZIP, configure GitHub Updates, then publish a newer GitHub release. In WordPress, go to Dashboard → Updates and click "Check again".
 
 Menus:
 - Appearance → Menus → create a menu and assign it to "Primary Menu" (and optionally "Footer Menu")
