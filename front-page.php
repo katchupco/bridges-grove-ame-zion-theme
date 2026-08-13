@@ -16,7 +16,7 @@ if ($hero_id) {
   if (!empty($src[0])) $hero_url = esc_url($src[0]);
 }
 if (!$hero_url) {
-  $hero_url = esc_url(get_template_directory_uri() . '/assets/img/hero-fallback.jpg');
+  $hero_url = esc_url(get_template_directory_uri() . '/assets/img/bridges-grove-church-hero.jpg');
 }
 
 // Hero text (Customizer with safe defaults)

@@ -85,7 +85,7 @@ $social_links = array_filter($social_links, function ($social) {
   <div class="bg-footer-bottom">
     <span>&copy; <?php echo esc_html(date('Y')); ?> <?php echo esc_html($site_name); ?> <?php esc_html_e('All rights reserved.', 'bridges-grove'); ?></span>
     <a class="katchup-credit" href="https://katch-up.com" target="_blank" rel="noopener" aria-label="Website by Katch-Up">
-      <img src="https://katch-up.com/wp-content/uploads/2026/08/katch-up-badge-light.png" alt="Website by Katch-Up">
+      <img src="https://katch-up.com/wp-content/uploads/2026/08/katch-up-badge-dark.png" alt="Website by Katch-Up">
     </a>
   </div>
 </footer>

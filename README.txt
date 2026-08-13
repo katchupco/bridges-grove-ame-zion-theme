@@ -1,4 +1,4 @@
-Bridges Grove AME Zion — WordPress Theme (2.8.19)
+Bridges Grove AME Zion — WordPress Theme (2.8.20)
 
 This package includes a complete professional redesign:
 - Clean transparent 2026-style header with adaptive nav colors, logo swapping, and mobile menu
