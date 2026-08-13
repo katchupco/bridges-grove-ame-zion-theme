@@ -20,7 +20,8 @@ if (!$hero_url) {
 }
 
 // Hero text (Customizer with safe defaults)
-$hero_title    = trim((string) get_theme_mod('bg_hero_title', 'Entering to Worship God.\nLeaving to Love One Another.'));
+$hero_title    = trim((string) get_theme_mod('bg_hero_title', "Entering to Worship God.\nLeaving to Love One Another."));
+$hero_title    = str_replace(array('\\r\\n', '\\n', '\\r'), "\n", $hero_title);
 $hero_subtitle = trim((string) get_theme_mod('bg_hero_subtitle', ''));
 
 if (!function_exists('bg_section_fallback')) {

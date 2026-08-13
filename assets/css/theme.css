@@ -359,7 +359,7 @@ svg{display:block}
 .bg-kicker{
   display:inline-flex;
   align-items:center;
-  gap:8px;
+  gap:0;
   margin-bottom:14px;
   color:var(--bg-gold);
   font-size:13px;
@@ -369,10 +369,8 @@ svg{display:block}
 }
 .bg-hero-kicker::before,
 .bg-kicker::before{
-  content:'';
-  width:34px;
-  height:2px;
-  background:currentColor;
+  content:none;
+  display:none;
 }
 .bg-hero h1{
   margin:0;
