@@ -55,18 +55,38 @@ if (!defined('ABSPATH')) { exit; }
       ?>
       <a class="bg-btn bg-btn-outline" href="<?php echo esc_url($cta1_url); ?>"><?php echo esc_html($cta1_label); ?></a>
       <a class="bg-btn bg-btn-solid" href="<?php echo esc_url($cta2_url); ?>"><?php echo esc_html($cta2_label); ?></a>
-      <button class="bg-mobile-toggle" type="button" aria-label="<?php esc_attr_e('Open menu', 'bridges-grove'); ?>" aria-expanded="false">
-        <?php echo bg_icon('menu'); ?>
+      <button class="bg-mobile-toggle" type="button" aria-label="<?php esc_attr_e('Open menu', 'bridges-grove'); ?>" aria-expanded="false" aria-controls="bg-mobile-menu">
+        <span class="bg-mobile-toggle-lines" aria-hidden="true"><span></span><span></span></span>
       </button>
     </div>
   </div>
 
-  <div class="bg-mobile-panel" hidden>
-    <?php bg_primary_menu(); ?>
-    <div class="bg-mobile-cta">
-      <a class="bg-btn bg-btn-outline" href="<?php echo esc_url($cta1_url); ?>"><?php echo esc_html($cta1_label); ?></a>
-      <a class="bg-btn bg-btn-solid" href="<?php echo esc_url($cta2_url); ?>"><?php echo esc_html($cta2_label); ?></a>
+  <button class="bg-mobile-backdrop" type="button" aria-label="<?php esc_attr_e('Close menu', 'bridges-grove'); ?>" hidden></button>
+  <div class="bg-mobile-panel" id="bg-mobile-menu" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e('Site menu', 'bridges-grove'); ?>" hidden>
+    <div class="bg-mobile-panel-head">
+      <div>
+        <span class="bg-mobile-panel-kicker"><?php esc_html_e('Bridges Grove', 'bridges-grove'); ?></span>
+        <strong><?php esc_html_e('Explore Our Church', 'bridges-grove'); ?></strong>
+      </div>
+      <button class="bg-mobile-close" type="button" aria-label="<?php esc_attr_e('Close menu', 'bridges-grove'); ?>">
+        <span aria-hidden="true"></span>
+      </button>
     </div>
+    <nav class="bg-mobile-nav" aria-label="<?php esc_attr_e('Mobile menu', 'bridges-grove'); ?>">
+      <?php bg_primary_menu(); ?>
+    </nav>
+    <div class="bg-mobile-service">
+      <span><?php echo bg_icon('clock'); ?></span>
+      <div>
+        <small><?php esc_html_e('Sunday Worship', 'bridges-grove'); ?></small>
+        <strong><?php esc_html_e('11:00 AM', 'bridges-grove'); ?></strong>
+      </div>
+    </div>
+    <div class="bg-mobile-cta">
+      <a class="bg-btn bg-btn-outline" href="<?php echo esc_url($cta1_url); ?>"><?php echo bg_icon('play'); ?><?php echo esc_html($cta1_label); ?></a>
+      <a class="bg-btn bg-btn-solid" href="<?php echo esc_url($cta2_url); ?>"><?php echo bg_icon('map'); ?><?php echo esc_html($cta2_label); ?></a>
+    </div>
+    <p class="bg-mobile-address"><?php esc_html_e('251 Bridges Grove Church Rd, Shannon, NC 28386', 'bridges-grove'); ?></p>
   </div>
 </header>
 

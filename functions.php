@@ -4,7 +4,7 @@
  */
 if (!defined('ABSPATH')) { exit; }
 
-define('BG_THEME_VERSION', '2.8.20');
+define('BG_THEME_VERSION', '2.8.21');
 define('BG_THEME_DIR', get_template_directory());
 define('BG_THEME_URI', get_template_directory_uri());
 
@@ -187,6 +187,7 @@ function bg_icon($name): string {
         'book' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/></svg>',
         'arrow' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>',
         'leaf' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 5 9 5 19c10 0 15-5 15-15Z"/><path d="M5 19c3-6 7-10 15-15"/></svg>',
+        'church-mark' => '<svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="#7a0f1c"/><circle cx="36" cy="36" r="27.5" fill="#24733f" stroke="#fff" stroke-width="3"/><path d="M36 54V34m0 8-9-6m9 1 8-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 37c-5.2 0-9-3.8-9-8.2 0-4.3 3.6-7.8 8.1-8.1 1.5-4.4 5.4-7.2 9.9-7.2s8.4 2.8 9.9 7.2c4.5.3 8.1 3.8 8.1 8.1 0 4.5-3.8 8.2-9 8.2" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         'facebook' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 8h2V4h-2a5 5 0 0 0-5 5v2H8v4h2v5h4v-5h3l1-4h-4V9a1 1 0 0 1 1-1Z"/></svg>',
         'menu' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
     );

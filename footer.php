@@ -25,7 +25,7 @@ $social_links = array_filter($social_links, function ($social) {
           <?php if ($footer_icon) : ?>
             <img src="<?php echo esc_url($footer_icon); ?>" alt="" loading="lazy">
           <?php else : ?>
-            <span class="bg-footer-icon-fallback" aria-hidden="true"><?php echo bg_icon('leaf'); ?></span>
+            <span class="bg-footer-icon-fallback" aria-hidden="true"><?php echo bg_icon('church-mark'); ?></span>
           <?php endif; ?>
         </div>
         <div class="bg-footer-meta">
