@@ -200,7 +200,7 @@ add_action('customize_register', function ($wp_customize) {
     ));
 
     $wp_customize->add_setting('bg_github_updates_enabled', array(
-        'default'           => false,
+        'default'           => true,
         'sanitize_callback' => function ($value) {
             return (bool) $value;
         },
@@ -213,7 +213,7 @@ add_action('customize_register', function ($wp_customize) {
     ));
 
     $wp_customize->add_setting('bg_github_auto_updates_enabled', array(
-        'default'           => false,
+        'default'           => true,
         'sanitize_callback' => function ($value) {
             return (bool) $value;
         },
@@ -226,12 +226,12 @@ add_action('customize_register', function ($wp_customize) {
     ));
 
     $wp_customize->add_setting('bg_github_repo_url', array(
-        'default'           => '',
+        'default'           => 'https://github.com/katchupco/bridges-grove-ame-zion-theme',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('bg_github_repo_url', array(
         'label'       => __('GitHub Repository', 'bridges-grove'),
-        'description' => __('Example: https://github.com/yourname/bridges-grove-ame-zion or yourname/bridges-grove-ame-zion', 'bridges-grove'),
+        'description' => __('The official theme repository is already configured. Change this only if the theme moves to another GitHub repository.', 'bridges-grove'),
         'section'     => 'bg_github_updates',
         'type'        => 'text',
     ));
