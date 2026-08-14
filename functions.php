@@ -4,9 +4,48 @@
  */
 if (!defined('ABSPATH')) { exit; }
 
-define('BG_THEME_VERSION', '2.8.22');
+define('BG_THEME_VERSION', '2.8.23');
 define('BG_THEME_DIR', get_template_directory());
 define('BG_THEME_URI', get_template_directory_uri());
+
+/**
+ * Carry the Bridges Grove identity into WordPress authentication screens.
+ */
+function bg_login_assets(): void {
+    wp_enqueue_style(
+        'bridges-grove-login',
+        BG_THEME_URI . '/assets/css/login.css',
+        array(),
+        BG_THEME_VERSION
+    );
+}
+add_action('login_enqueue_scripts', 'bg_login_assets');
+
+add_filter('login_headerurl', function (): string {
+    return home_url('/');
+});
+
+add_filter('login_headertext', function (): string {
+    return sprintf(
+        /* translators: %s is the site name. */
+        __('Return to %s', 'bridges-grove'),
+        get_bloginfo('name') ?: __('Bridges Grove A.M.E. Zion Church', 'bridges-grove')
+    );
+});
+
+add_filter('login_message', function ($message): string {
+    $welcome = '<div class="bg-login-welcome">';
+    $welcome .= '<span>' . esc_html__('Bridges Grove A.M.E. Zion Church', 'bridges-grove') . '</span>';
+    $welcome .= '<h2>' . esc_html__('Welcome back.', 'bridges-grove') . '</h2>';
+    $welcome .= '<p>' . esc_html__('Sign in to manage the church website and ministry updates.', 'bridges-grove') . '</p>';
+    $welcome .= '</div>';
+
+    return $welcome . (string) $message;
+});
+
+add_action('login_footer', function (): void {
+    echo '<p class="bg-login-address">' . esc_html__('251 Bridges Grove Church Rd, Shannon, NC 28386', 'bridges-grove') . '</p>';
+});
 
 require_once BG_THEME_DIR . '/inc/customizer.php';
 require_once BG_THEME_DIR . '/inc/github-updater.php';

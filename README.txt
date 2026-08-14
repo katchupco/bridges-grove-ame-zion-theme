@@ -1,4 +1,4 @@
-Bridges Grove AME Zion — WordPress Theme (2.8.22)
+Bridges Grove AME Zion — WordPress Theme (2.8.23)
 
 This package includes a complete professional redesign:
 - Clean transparent 2026-style header with adaptive nav colors, logo swapping, and a polished slide-out mobile menu
@@ -28,6 +28,7 @@ This package includes a complete professional redesign:
 - Tree-lined footer treatment with church links and call-to-action buttons
 - Original red-and-green church emblem restored in the footer instead of the generic leaf icon
 - Homepage hero line breaks render correctly, with decorative dash prefixes removed from section labels
+- Custom Bridges Grove WordPress login screen with a dedicated BG oak-tree emblem
 - Branded KATCH-UP website credit badge in the footer
 
 Install:
